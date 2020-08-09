@@ -7,3 +7,7 @@ First open create_cookies.py and sign in to your account, so that the cookies ar
 
 You have to clone the gistfile into this repository under MydealzInput/gistfile1.txt (via git clone).
 I recommend using this script in combination with a bash script to check via git for updates in the gist file.
+
+## Contributions
+
+Feel free to fork the project and add features that you miss or that can be improved and open a pull request. If you find a bug in the software or Udemy is changing again it's structure feel free and open an issue and I will see how I can fix the problem or merge your pull request.
