@@ -4,7 +4,7 @@ Signs you up to all temporary free courses on Udemy.
 
 ## Requirements
 
-You need to set up selenium webdriver with geckodriver for Firefox for this programm to work.
+You need to set up selenium webdriver with geckodriver for Firefox for this programm to work. (For a tutorial visit https://www.lambdatest.com/blog/selenium-firefox-driver-tutorial/#Download&Setup)
 
 ## Usage
 
