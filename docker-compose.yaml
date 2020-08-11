@@ -1,0 +1,13 @@
+version: "3"
+services:
+  firefox:
+    image: selenium/standalone-firefox:4.0.0-alpha-6-20200730
+    volumes:
+      - /dev/shm:/dev/shm
+
+  python:
+    build: .
+    depends_on: 
+      - firefox
+
+      #docker-compose up --abort-on-container-exit

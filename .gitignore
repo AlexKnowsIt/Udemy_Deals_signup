@@ -3,6 +3,7 @@ cookies.json
 *.sh
 manuelles_anmelden.py
 *.log
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
