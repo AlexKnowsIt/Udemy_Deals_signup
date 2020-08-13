@@ -13,7 +13,14 @@ First open create_cookies.py and sign in to your account, so that the cookies ar
 You have to clone the gistfile into this repository under MydealzInput/gistfile1.txt (via git clone).
 I recommend using this script in combination with a bash script to check via git for updates in the gist file.
 
-First open create_cookies.py and sign in to your account, so that the cookies are dropped inside a json file. Than you can start UdemyPicker.py as long as your cookies are valid and it will use the links provided (https://gist.github.com/temminks/bc90582aadd7d466fef67aed524d886d) to double check if the courses are free and then will sign you in. 
+> First open create_cookies.py and sign in to your account, so that the cookies are dropped inside a json file. 
+Than you can start UdemyPicker.py as long as your cookies are valid and it will use the links provided (https://gist.github.com/temminks/bc90582aadd7d466fef67aed524d886d) to double check if the courses are free and then will sign you in.
+
+There are 3 versions available for running this Code.
+
+        Udemy() # uses the standard version, where you can see whats happening in the browser
+        Udemy('h') # starts in headless mode for running on a server
+        Udemy ('d') # is optimized for docker and can be used with the docker image of selenium-firefox-standalone
 
 There is also a docker Image now available. Just save your cookies and run 
 
