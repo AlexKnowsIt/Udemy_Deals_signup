@@ -20,7 +20,7 @@ There are 3 versions available for running this Code.
 
         Udemy() # uses the standard version, where you can see whats happening in the browser
         Udemy('h') # starts in headless mode for running on a server
-        Udemy ('d') # is optimized for docker and can be used with the docker image of selenium-firefox-standalone
+        Udemy('d') # is optimized for docker and can be used with the docker image of selenium-firefox-standalone
 
 There is also a docker Image now available. Just save your cookies and run 
 
