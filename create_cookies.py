@@ -17,9 +17,11 @@ def dump_cookies():
 
 options = FirefoxOptions()
 options.add_argument("--headless")
-driver = webdriver.Firefox(options=options)
+driver = webdriver.Firefox()
+    #options=options)
 driver.get("https://udemy.com")
 
-time.sleep(10)
+time.sleep(15)
 
 dump_cookies()
+driver.close()
