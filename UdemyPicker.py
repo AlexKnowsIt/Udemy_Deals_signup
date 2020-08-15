@@ -1,4 +1,3 @@
-#!/home/alexander/Programmierung/Python/web_dev_env/bin/python
 import os
 import time
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -38,7 +37,7 @@ class Udemy():
         for link in self.links:
             self.driver.get(link)
             try:
-                element = WebDriverWait(self.driver, 3).until(
+                WebDriverWait(self.driver, 3).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, ".udlite-heading-xxl"))
                 )
                 prices = self.driver.find_elements_by_css_selector(".udlite-heading-xxl > span:nth-child(2)")
@@ -51,7 +50,7 @@ class Udemy():
                     btn.click()
                     time.sleep(5)
                     try:
-                        element = WebDriverWait(self.driver, 3).until(
+                        WebDriverWait(self.driver, 3).until(
                             EC.presence_of_element_located((By.CSS_SELECTOR, '.mb-space-sm'))
                         )
                         # print(self.driver.find_element_by_xpath('/html/body/div[1]/div[3]/div/div/div/div[2]/form/div[2]/div/div[1]/table[2]/tbody/tr/td[2]/span/span').text)
