@@ -24,8 +24,11 @@ class Udemy():
         else:
             raise NotImplementedError
         web_input = os.path.join(self.dirname, 'MydealzInput/gistfile1.txt')
-        with open(web_input) as f:
-            self.links = f.readlines()
+        with open(web_input, 'r') as f:
+            self.aktuelle_links = f.readlines()
+        self.web_history = os.path.join(self.dirname, 'MydealzInput/Udemy.history')
+        with open(self.web_history, 'r')as f:
+            self.links = list(set(self.aktuelle_links).difference(f.readlines()))
         cooky = os.path.join(self.dirname, 'cookies.json')
         self.driver.get("https://udemy.com")
         with open(cooky, 'r') as f:
@@ -36,6 +39,11 @@ class Udemy():
     def sign_up(self):
         for link in self.links:
             self.driver.get(link)
+            # Soll bereits gekaufte Kurse einfangen
+            if self.driver.find_elements_by_css_selector('h2.udlite-heading-md'):
+                with open (self.web_history, 'a') as f:
+                    f.write(self.driver.current_url + "\n")
+                continue
             try:
                 WebDriverWait(self.driver, 3).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, ".udlite-heading-xxl"))
@@ -44,11 +52,19 @@ class Udemy():
                 for preis in prices:
                     price = preis
                 lang = self.driver.find_element_by_css_selector(".clp-lead__locale")
+                if not (lang.text == "Englisch" or lang.text == "Deutsch"):
+                    with open (self.web_history, 'a') as f:
+                        f.write(self.driver.current_url + "\n")
+                    print('Diese Sprache kannst du nicht sprechen')
+                    continue
                 if price.text == "Kostenlos" and (lang.text == "Englisch" or lang.text == "Deutsch"):
                     btn = self.driver.find_element_by_css_selector(".sidebar-container--purchase-section--17KRp > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > button:nth-child(1)")
-                    print(self.driver.title + " wurde deiner Kursliste hinzugefügt.")
+                    Seitentitel = ''.join((self.driver.title, "wurde deiner Kursliste hinzugefügt."))
+                    with open (self.web_history, 'a') as f:
+                        f.write(self.driver.current_url + "\n")
                     btn.click()
                     time.sleep(5)
+                    print(Seitentitel)
                     try:
                         WebDriverWait(self.driver, 3).until(
                             EC.presence_of_element_located((By.CSS_SELECTOR, '.mb-space-sm'))
