@@ -10,5 +10,7 @@ services:
     build: .
     depends_on: 
       - firefox
+    volumes: 
+      - ./MydealzInput:/MydealzInput
 
       #docker-compose up --abort-on-container-exit

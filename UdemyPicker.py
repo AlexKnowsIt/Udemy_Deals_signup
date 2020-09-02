@@ -59,7 +59,7 @@ class Udemy():
                     continue
                 if price.text == "Kostenlos" and (lang.text == "Englisch" or lang.text == "Deutsch"):
                     btn = self.driver.find_element_by_css_selector(".sidebar-container--purchase-section--17KRp > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > button:nth-child(1)")
-                    Seitentitel = ''.join((self.driver.title, "wurde deiner Kursliste hinzugefügt."))
+                    Seitentitel = ''.join((self.driver.title, " wurde deiner Kursliste hinzugefügt."))
                     with open (self.web_history, 'a') as f:
                         f.write(self.driver.current_url + "\n")
                     btn.click()
