@@ -10,5 +10,5 @@ COPY ./UdemyPicker.py ./
 
 RUN pip3 install -r requirements.txt
 
-CMD [ "ls MydealzInput" ]
-# CMD [ "./wait-for-it.sh", "firefox:4444", "--", "python3", "-u", "run_docker.py" ]
+# CMD [ "ls MydealzInput" ]
+CMD [ "./wait-for-it.sh", "firefox:4444", "--", "python3", "-u", "run_docker.py" ]
